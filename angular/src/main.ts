@@ -43,8 +43,8 @@ if (environment.production) {
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
-  private http = inject(HttpClient);
-  private pls = inject(PathLocationStrategy);
+  private http: HttpClient = inject(HttpClient);
+  private pls: PathLocationStrategy = inject(PathLocationStrategy);
 
 
   getTranslation(lang: string) {

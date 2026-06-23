@@ -1,5 +1,5 @@
 <div class="container flex-grow-1 d-flex justify-content-evenly flex-wrap align-items-center">
-  @for (player of (state | keyvalue); track getId($index, player)) {
+  @for (player of (state | keyvalue); track getId(player)) {
     <shpp-player-hand
       [playerState]="player.value"
       [deck]="deck">
