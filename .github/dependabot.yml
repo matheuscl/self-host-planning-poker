@@ -31,7 +31,8 @@ updates:
       - "dependencies"
       - "python"
     open-pull-requests-limit: 5
-    cooldown: "14 days"
+    cooldown:
+      default-days: 14
   - package-ecosystem: "npm"
     directory: "/angular"
     schedule:
@@ -43,7 +44,8 @@ updates:
       - "dependencies"
       - "angular"
     open-pull-requests-limit: 5
-    cooldown: "14 days"
+    cooldown:
+      default-days: 14
     ignore:
       - dependency-name: "@angular*"
         update-types: ["version-update:semver-major"]
