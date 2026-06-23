@@ -1,4 +1,4 @@
-import { enableProdMode, Injectable } from '@angular/core';
+import { enableProdMode, Injectable, inject } from '@angular/core';
 import {environment} from './environments/environment';
 import {AppComponent} from './app/app.component';
 import { provideTranslocoLocale } from '@ngneat/transloco-locale';
@@ -43,8 +43,9 @@ if (environment.production) {
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
-  constructor(private http: HttpClient,
-              private pls: PathLocationStrategy) {}
+  private http: HttpClient = inject(HttpClient);
+  private pls: PathLocationStrategy = inject(PathLocationStrategy);
+
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(`${this.pls.getBaseHref()}assets/i18n/${lang}.json`);
