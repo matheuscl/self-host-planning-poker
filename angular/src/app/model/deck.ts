@@ -1,6 +1,7 @@
 export interface CardValue {
   value: number;
   display: number | string;
+  tooltip?: string;
 }
 
 export interface Deck {
@@ -68,6 +69,18 @@ export const decks: Deck[] = [
       { value: 3, display: 3 },
       { value: 4, display: 4 },
       { value: 5, display: 5 },
+    ]
+  },
+  {
+    name: 'TIME_BASED',
+    textValues: false,
+    values: [
+      { value: 1, display: 1, tooltip: 'Less than 2 hours' },
+      { value: 2, display: 2, tooltip: 'Approximately half a day' },
+      { value: 3, display: 3, tooltip: 'Approximately 1 day' },
+      { value: 5, display: 5, tooltip: '2–3 days' },
+      { value: 8, display: 8, tooltip: '4–5 days — decompose into subtasks if possible' },
+      { value: 13, display: 13, tooltip: 'Must not enter the sprint as a single task — requires decomposition' },
     ]
   },
   {
