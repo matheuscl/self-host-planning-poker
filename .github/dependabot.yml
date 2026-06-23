@@ -6,7 +6,7 @@ updates:
       interval: "monthly"
       day: "friday"
     assignees:
-      - "axeleroy"
+      - "matheuscl"
     labels:
       - "dependencies"
       - "docker"
@@ -16,17 +16,17 @@ updates:
       interval: "monthly"
       day: "friday"
     assignees:
-      - "axeleroy"
+      - "matheuscl"
     labels:
-        - "dependencies"
-        - "github_actions"
+      - "dependencies"
+      - "github_actions"
   - package-ecosystem: "pip"
     directory: "/flask"
     schedule:
       interval: "monthly"
       day: "friday"
     assignees:
-      - "axeleroy"
+      - "matheuscl"
     labels:
       - "dependencies"
       - "python"
@@ -40,7 +40,7 @@ updates:
       interval: "monthly"
       day: "friday"
     assignees:
-      - "axeleroy"
+      - "matheuscl"
     labels:
       - "dependencies"
       - "angular"
@@ -50,12 +50,13 @@ updates:
         minimum-release-age: "14 days"
     ignore:
       - dependency-name: "@angular*"
-        update-types:  ["version-update:semver-major"]
+        update-types: ["version-update:semver-major"]
       - dependency-name: "rxjs"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
       - dependency-name: "typescript"
-        update-types: [ "version-update:semver-major", "version-update:semver-minor" ]
+        update-types:
+          ["version-update:semver-major", "version-update:semver-minor"]
       - dependency-name: "bootstrap"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
       - dependency-name: "@ng-bootstrap/ng-bootstrap"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
