@@ -31,6 +31,9 @@ updates:
       - "dependencies"
       - "python"
     open-pull-requests-limit: 5
+    allow:
+      - dependency-type: "all"
+        minimum-release-age: "14 days"
   - package-ecosystem: "npm"
     directory: "/angular"
     schedule:
@@ -42,6 +45,9 @@ updates:
       - "dependencies"
       - "angular"
     open-pull-requests-limit: 5
+    allow:
+      - dependency-type: "all"
+        minimum-release-age: "14 days"
     ignore:
       - dependency-name: "@angular*"
         update-types:  ["version-update:semver-major"]
