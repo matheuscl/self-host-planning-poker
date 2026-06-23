@@ -1,6 +1,7 @@
 import { Component, HostBinding, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ToastService } from './toast.service';
-import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,7 +20,7 @@ import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
 		  </ngb-toast>
 		}
 		`,
-  imports: [NgbToast]
+  imports: [CommonModule, NgbToastModule]
 })
 export class ToastsContainerComponent {
   toastService = inject(ToastService);
