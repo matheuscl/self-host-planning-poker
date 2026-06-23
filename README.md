@@ -131,7 +131,7 @@ python -m unittest
 > docker run --rm -it \
 >   -v $(pwd)/flask:/app \
 >   -p 5000:5000 \
->   python:3.11-slim \
+>   python:3.14-slim \
 >   bash -c "cd /app; pip install -r requirements.txt; FLASK_DEBUG=1 gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:5000"
 > ```
 > </details>
