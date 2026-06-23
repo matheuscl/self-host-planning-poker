@@ -33,7 +33,9 @@ updates:
     open-pull-requests-limit: 5
     allow:
       - dependency-type: "all"
-        minimum-release-age: "14 days"
+        cooldown:
+          duration: "14"
+          unit: "days"
   - package-ecosystem: "npm"
     directory: "/angular"
     schedule:
@@ -47,7 +49,9 @@ updates:
     open-pull-requests-limit: 5
     allow:
       - dependency-type: "all"
-        minimum-release-age: "14 days"
+        cooldown:
+          duration: "14"
+          unit: "days"
     ignore:
       - dependency-name: "@angular*"
         update-types: ["version-update:semver-major"]
