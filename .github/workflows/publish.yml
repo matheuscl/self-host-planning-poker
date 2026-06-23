@@ -22,7 +22,7 @@ jobs:
               uses: docker/setup-buildx-action@v3
             - name: Docker meta
               id: meta
-              uses: docker/metadata-action@v5
+              uses: docker/metadata-action@v6
               with:
                   images: |
                       name=matheuscl/self-host-planning-poker,enable=${{startsWith(github.ref, 'refs/tags/v')}}
