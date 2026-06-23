@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContainerComponent } from '../shared/container/container.component';
 import { PlayerNameFormComponent } from '../shared/player-name-form/player-name-form.component';
@@ -12,11 +12,10 @@ import { TranslocoDirective } from '@ngneat/transloco';
   imports: [TranslocoDirective, PlayerNameFormComponent, ContainerComponent, NavAppTitleComponent]
 })
 export default class SetUsernamePageComponent implements OnInit {
-  gameId?: string;
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
-  constructor(private route: ActivatedRoute,
-              private router: Router) {
-  }
+  gameId?: string;
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => this.gameId = params['gameId']);
