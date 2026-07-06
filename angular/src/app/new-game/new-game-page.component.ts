@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Deck } from '../model/deck';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -22,10 +22,10 @@ import { PathLocationStrategy } from '@angular/common';
   ]
 })
 export default class NewGamePageComponent {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private pls = inject(PathLocationStrategy);
 
-  constructor(private http: HttpClient,
-              private router: Router,
-              private pls: PathLocationStrategy) { }
 
   onNewGame(newGame: {name: string, deck: Deck}): void {
     const body = {

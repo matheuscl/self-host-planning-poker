@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, NgZone } from '@angular/core';
 import { Manager, Socket } from 'socket.io-client';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, filter, map, Observable, Subject } from 'rxjs';
@@ -14,6 +14,13 @@ import { PathLocationStrategy } from '@angular/common';
   providedIn: 'root'
 })
 export class CurrentGameService {
+  private router = inject(Router);
+  private userInformation = inject(UserInformationService);
+  private transloco = inject(TranslocoService);
+  private toastService = inject(ToastService);
+  private pls = inject(PathLocationStrategy);
+  private zone = inject(NgZone);
+
   private readonly totalAttempts = 10;
   private readonly reconnectDelaySeconds = 5;
   private readonly retries = 5;
@@ -26,11 +33,7 @@ export class CurrentGameService {
   private infoSubject = new BehaviorSubject<GameInfo | null>(null);
   private newGameSubject = new Subject<void>();
 
-  constructor(private router: Router,
-              private userInformation: UserInformationService,
-              private transloco: TranslocoService,
-              private toastService: ToastService,
-              private pls: PathLocationStrategy) {
+  constructor() {
     this.manager = new Manager(environment.backendRootOverride ?? window.location.origin,
       {
         path: `${this.pls.getBaseHref()}socket.io/`,
@@ -44,9 +47,9 @@ export class CurrentGameService {
       ackTimeout: this.ackTimeoutMs
     });
 
-    this.socket.on('state', (state: GameState) => this.stateSubject.next(state));
-    this.socket.on('info', (info: GameInfo) => this.infoSubject.next(info));
-    this.socket.on('new_game', () => this.newGameSubject.next());
+    this.socket.on('state', (state: GameState) => this.zone.run(() => this.stateSubject.next(state)));
+    this.socket.on('info', (info: GameInfo) => this.zone.run(() => this.infoSubject.next(info)));
+    this.socket.on('new_game', () => this.zone.run(() => this.newGameSubject.next()));
 
     this.socket.on('disconnect', (reason) => {
       if (reason !== 'io client disconnect') {
