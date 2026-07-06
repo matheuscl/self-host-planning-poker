@@ -1,4 +1,4 @@
-import { enableProdMode, Injectable, inject } from '@angular/core';
+import { enableProdMode, Injectable, inject, provideZoneChangeDetection } from '@angular/core';
 import {environment} from './environments/environment';
 import {AppComponent} from './app/app.component';
 import { provideTranslocoLocale } from '@ngneat/transloco-locale';
@@ -54,6 +54,8 @@ export class TranslocoHttpLoader implements TranslocoLoader {
 
 bootstrapApplication(AppComponent, {
     providers: [
+      // Angular 21 defaults to zoneless change detection; this app relies on zone-based CD
+      provideZoneChangeDetection(),
       provideTranslocoLocale({
         langToLocaleMapping: {
           en: 'en-US',
