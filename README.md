@@ -1,5 +1,7 @@
 # Self-host Planning Poker
 
+## This a fork from https://github.com/axeleroy/self-host-planning-poker which have been archived by the author
+
 A hassle-free Planning Poker application to deploy on your NAS.
 
 [![Docker Hub](https://img.shields.io/docker/v/matheuscl/self-host-planning-poker?sort=semver&logo=docker)](https://hub.docker.com/r/matheuscl/self-host-planning-poker/tags)
