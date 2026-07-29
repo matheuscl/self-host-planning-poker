@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "friday"
     assignees:
       - "matheuscl"
@@ -13,7 +13,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "friday"
     assignees:
       - "matheuscl"
@@ -23,7 +23,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/flask"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "friday"
     assignees:
       - "matheuscl"
@@ -36,7 +36,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/angular"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "friday"
     assignees:
       - "matheuscl"
@@ -46,6 +46,13 @@ updates:
     open-pull-requests-limit: 5
     cooldown:
       default-days: 14
+    groups:
+      angular:
+        patterns:
+          - "@angular*"
+          - "@angular-devkit*"
+          - "rxjs"
+          - "zone.js"
     ignore:
       - dependency-name: "@angular*"
         update-types: ["version-update:semver-major"]
