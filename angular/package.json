@@ -48,7 +48,7 @@
     "@angular-eslint/template-parser": "^21.4.0",
     "@angular/cli": "^21.0.0",
     "@angular/compiler-cli": "^21.0.0",
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.1",
     "@types/jasmine": "~6.0.0",
     "@types/qrcode": "^1.5.5",
